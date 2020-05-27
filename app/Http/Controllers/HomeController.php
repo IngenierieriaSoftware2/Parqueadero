@@ -36,11 +36,13 @@ class HomeController extends Controller
 
     public function update(Request $request, $idZona)
     {
-        // $zona = Zona::find($idZona);
-        dd($idZona);
+        // dd($idZona); debug
+        $zona = Zona::find($idZona);
+        $zona->estado = $request->estado;
+        $zona->update();
+
         // $requestData= $request->all();
 
-        // $zona->estado->update($request->estado);
         return redirect(route('home'));
     }
 }
