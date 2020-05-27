@@ -111,13 +111,12 @@
                         <td>{{$disponible->id}}</td>
                         <td>
                           <div class="form-button-action">
-                            <form action="{{route('home.update',$disponible->id)}}" method="POST" id="send-data">
+                            <form action="{{route('home.update', $disponible )}}" method="POST" >
                               @csrf
                               {{method_field('PUT')}}
                               <input id="placa" type="text" class="form-control input-pill @error('placa') is-invalid @enderror" name="placa" required autofocus>
                               <input id="estado" type="text" class="form-control input-pill @error('estado') is-invalid @enderror" name="estado" value="1" required hidden>
-                              <button onclick="event.preventDefault();
-                                                     document.getElementById('send-data').submit();" class="btn btn-success"> Ocupar</button>
+                              <button type="submit" class="btn btn-success"> Ocupar</button>
                             </form>
 
                           </div>
