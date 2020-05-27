@@ -75,12 +75,12 @@
                     </thead>
                     <tbody>
                       @foreach($ocupados as $ocupado)
-                        <tr>
-                          <td>{{$ocupado->id}}</td>
-                          <td></td>
-                          <td></td>
-                          <td><a href="{{ route("home") }}"><button type="button" class="btn btn-danger">Desocupar</button></a></td>
-                        </tr>
+                      <tr>
+                        <td>{{$ocupado->id}}</td>
+                        <td></td>
+                        <td></td>
+                        <td><a href="{{ route("home") }}"><button type="button" class="btn btn-danger">Desocupar</button></a></td>
+                      </tr>
                       @endforeach
 
                     </tbody>
@@ -105,12 +105,29 @@
                       <th>Acción</th>
                     </thead>
                     <tbody>
-                      @foreach($disponibles as $disponible)
-                        <tr>
+                      
+                    @foreach($disponibles as $disponible)
+                      <tr>
+                        <form action="{{route('home.update',$disponible->id)}}" method="POST">
+                          @csrf
+                          {{method_field('PUT')}}
                           <td>{{$disponible->id}}</td>
-                          <td></td>
-                          <td><a href="{{ route("home") }}"><button type="button" class="btn btn-success"> Ocupar </button></a></td>
-                        </tr>
+                          <td>
+                            <input id="placa" type="text" class="form-control input-pill @error('placa') is-invalid @enderror" name="placa" required autofocus>
+                            @error('placa')
+                            <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+
+
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-success"> Ocupar</button>
+
+                          </td>
+                        </form>
+                      </tr>
                       @endforeach
 
 
