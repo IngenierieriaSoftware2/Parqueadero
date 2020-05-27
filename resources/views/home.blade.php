@@ -101,13 +101,17 @@
                   <table class="table table-hover">
                     <thead class="text-success">
                       <th>Zona</th>
+                      <th>Placa</th>
                       <th>Acción</th>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td><a href="{{ route("home") }}"><button type="button" class="btn btn-success">Ocupar</button></a></td>
-                      </tr>
+                      @foreach($disponibles as $disponible)
+                        <tr>
+                          <td>{{$disponible->id}}</td>
+                          <td></td>
+                          <td><a href="{{ route("home") }}"><button type="button" class="btn btn-success"> Ocupar </button></a></td>
+                        </tr>
+                      @endforeach
 
 
                     </tbody>

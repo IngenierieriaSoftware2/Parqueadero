@@ -26,11 +26,11 @@ class HomeController extends Controller
     public function index()
     {
         $ocupados = Zona::where('estado', '1')->get();
-        $desocupados = Zona::where('estado', '0')->get();
+        $disponibles = Zona::where('estado', '0')->get();
 
         return view('home')->with([
-            'ocupados' => $ocupados,
-            'desocupados' => $desocupados
-        ]);
+            'disponibles'=> $disponibles,
+            'ocupados'=> $ocupados
+            ]);
     }
 }
