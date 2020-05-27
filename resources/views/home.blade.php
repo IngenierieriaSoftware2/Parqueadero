@@ -108,25 +108,21 @@
                       
                     @foreach($disponibles as $disponible)
                       <tr>
-                        <form action="{{route('home.update',$disponible->id)}}" method="POST">
-                          @csrf
-                          {{method_field('PUT')}}
+                        
                           <td>{{$disponible->id}}</td>
                           <td>
+                          <form action="{{route('home.update',$disponible->id)}}" method="POST" id="send-data">
+                          @csrf
+                          {{method_field('PUT')}}
                             <input id="placa" type="text" class="form-control input-pill @error('placa') is-invalid @enderror" name="placa" required autofocus>
-                            @error('placa')
-                            <span class="invalid-feedback" role="alert">
-                              <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-
-
+                            <input id="estado" type="text" class="form-control input-pill @error('estado') is-invalid @enderror" name="estado" value="1" required hidden>
+                          </form>
                           </td>
                           <td>
-                            <button type="submit" class="btn btn-success"> Ocupar</button>
-
+                          <button  onclick="event.preventDefault();
+                                                     document.getElementById('send-data').submit();" class="btn btn-success"> Ocupar</button>
                           </td>
-                        </form>
+
                       </tr>
                       @endforeach
 

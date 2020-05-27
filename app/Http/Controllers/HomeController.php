@@ -36,13 +36,11 @@ class HomeController extends Controller
 
     public function update(Request $request, $id)
     {
-        dd($request);
-        // $user = User::find($id);
-        // $requestData= $request->all();
+        // dd($request);
+        $zona = Zona::find($id);
+        $requestData= $request->all();
 
-        // $requestData['password'] = Hash::make($requestData['password']);
-        // $user->update($requestData);
-        // $user->update($request->all()); // Change : it was no password hash
-        // return redirect(route('superadmin.admins.index'))->with('users', $this->getUsersbyRole('admin'));
+        $zona->update($requestData);
+        return redirect(route('home'));
     }
 }
