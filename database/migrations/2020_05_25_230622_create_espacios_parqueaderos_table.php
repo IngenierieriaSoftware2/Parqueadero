@@ -15,7 +15,9 @@ class CreateEspaciosParqueaderosTable extends Migration
     {
         Schema::create('espacios_parqueaderos', function (Blueprint $table) {
             $table->id();
-            $table->string('placa')->unique();
+            $table->integer('zona');
+            $table->tinyInteger('estado');
+            $table->string('placa')->unique()->nullable();
             $table->time('hora_ingreso');
             $table->time('hora_salida')->nullable();
             $table->integer('tarifa');
