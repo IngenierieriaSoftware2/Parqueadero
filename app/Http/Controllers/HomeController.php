@@ -34,13 +34,13 @@ class HomeController extends Controller
             ]);
     }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $idZona)
     {
-        // dd($request);
-        $zona = Zona::find($id);
-        $requestData= $request->all();
+        // $zona = Zona::find($idZona);
+        dd($idZona);
+        // $requestData= $request->all();
 
-        $zona->update($requestData);
+        // $zona->estado->update($request->estado);
         return redirect(route('home'));
     }
 }

@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Zona extends Model
 {
     //
-    protected $fillable = ['token'];
+    protected $fillable = ['estado'];
 }

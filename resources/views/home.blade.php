@@ -102,26 +102,26 @@
                     <thead class="text-success">
                       <th>Zona</th>
                       <th>Placa</th>
-                      <th>Acción</th>
                     </thead>
                     <tbody>
-                      
-                    @foreach($disponibles as $disponible)
+
+                      @foreach($disponibles as $disponible)
                       <tr>
-                        
-                          <td>{{$disponible->id}}</td>
-                          <td>
-                          <form action="{{route('home.update',$disponible->id)}}" method="POST" id="send-data">
-                          @csrf
-                          {{method_field('PUT')}}
-                            <input id="placa" type="text" class="form-control input-pill @error('placa') is-invalid @enderror" name="placa" required autofocus>
-                            <input id="estado" type="text" class="form-control input-pill @error('estado') is-invalid @enderror" name="estado" value="1" required hidden>
-                          </form>
-                          </td>
-                          <td>
-                          <button  onclick="event.preventDefault();
+
+                        <td>{{$disponible->id}}</td>
+                        <td>
+                          <div class="form-button-action">
+                            <form action="{{route('home.update',$disponible->id)}}" method="POST" id="send-data">
+                              @csrf
+                              {{method_field('PUT')}}
+                              <input id="placa" type="text" class="form-control input-pill @error('placa') is-invalid @enderror" name="placa" required autofocus>
+                              <input id="estado" type="text" class="form-control input-pill @error('estado') is-invalid @enderror" name="estado" value="1" required hidden>
+                              <button onclick="event.preventDefault();
                                                      document.getElementById('send-data').submit();" class="btn btn-success"> Ocupar</button>
-                          </td>
+                            </form>
+
+                          </div>
+                        </td>
 
                       </tr>
                       @endforeach
