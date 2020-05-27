@@ -74,6 +74,15 @@
                       <th>Acción</th>
                     </thead>
                     <tbody>
+                      @foreach($ocupados as $ocupado)
+                        <tr>
+                          <td>{{$ocupado->id}}</td>
+                          <td></td>
+                          <td></td>
+                          <td><a href="{{ route("home") }}"><button type="button" class="btn btn-danger">Desocupar</button></a></td>
+                        </tr>
+                      @endforeach
+
                     </tbody>
                   </table>
                 </div>
@@ -97,7 +106,7 @@
                     <tbody>
                       <tr>
                         <td>1</td>
-                        <td><a href="{{ route("home") }}"><button type="button" class="btn btn-danger">Ocupar</button></a></td>
+                        <td><a href="{{ route("home") }}"><button type="button" class="btn btn-success">Ocupar</button></a></td>
                       </tr>
 
 

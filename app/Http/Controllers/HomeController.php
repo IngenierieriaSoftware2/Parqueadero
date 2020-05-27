@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Zona;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $ocupados = Zona::where('estado', '1')->get();
+        $desocupados = Zona::where('estado', '0')->get();
+
+        return view('home')->with([
+            'ocupados' => $ocupados,
+            'desocupados' => $desocupados
+        ]);
     }
 }
