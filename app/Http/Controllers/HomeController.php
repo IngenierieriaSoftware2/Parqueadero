@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Zona;
 use App\Cliente;
-use App\Http\Controllers\Carbon;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -52,7 +52,16 @@ class HomeController extends Controller
             $zona->update();
             // dd($zona->cliente->cliente_id );
             
-        } 
+        } elseif ($request->estado == '0') { // Si se solicita desocupar
+            $zona->cliente->hora_salida = now();
+
+            $startTime = Carbon::parse($zona->cliente->hora_ingreso);
+            $endTime = Carbon::parse(now());
+
+            $totalDuration = $endTime->diffForHumans($startTime);
+            dd($totalDuration);
+            
+        }
         
         $zona->update();
 
