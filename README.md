@@ -20,7 +20,7 @@ Para poder poner en marcha este proyecto es necesario previamente contar con los
 - terminal o shell 
 
 Para el desarrollo, se utilizo sistema operativo Debian version 10, Base de datos MySQL. todo el proyecto 
-se desarrolló gracias a la [documentacion oficial](https://laravel.com/docs) y a los súper tutoriales de https://laracasts.com/series/laravel-6-from-scratch/episodes/
+se desarrolló gracias a la [documentacion oficial](https://laravel.com/docs) y a los súper tutoriales de [Laracasts] (https://laracasts.com/series/laravel-6-from-scratch/episodes/)
 
 ## Puesta en Marcha
 1. Clonamos el repo : 
