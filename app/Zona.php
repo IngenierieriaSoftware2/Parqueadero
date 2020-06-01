@@ -8,4 +8,9 @@ class Zona extends Model
 {
     //
     protected $fillable = ['estado'];
+
+    public function cliente(){
+
+        return $this->belongsTo('App\Cliente');
+    }
 }

@@ -77,9 +77,16 @@
                       @foreach($ocupados as $ocupado)
                       <tr>
                         <td>{{$ocupado->id}}</td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="{{ route("home") }}"><button type="button" class="btn btn-danger">Desocupar</button></a></td>
+                        <td>{{$ocupado->cliente->placa}}</td>
+                        <td>{{$ocupado->cliente->hora_ingreso}}</td>
+                        <td>
+                        <form action="{{route('home.update', $ocupado )}}" method="POST" >
+                              @csrf
+                              {{method_field('PUT')}}
+                              <input id="estado" type="text" class="form-control input-pill @error('estado') is-invalid @enderror" name="estado" value="0" required hidden>
+                              <button type="submit" class="btn btn-danger"> Desocupar </button>
+                            </form>                        
+                        </td>
                       </tr>
                       @endforeach
 

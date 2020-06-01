@@ -15,8 +15,11 @@ class CreateZonasTable extends Migration
     {
         Schema::create('zonas', function (Blueprint $table) {
             $table->smallIncrements('id');
+            $table->unsignedSmallInteger('cliente_id'); // Foreign Key
             $table->tinyInteger('estado');
             $table->timestamps();
+
+            $table->foreign('cliente_id')->references('id')->on('clientes');
         });
     }
 
