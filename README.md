@@ -1,79 +1,85 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## Acerca de este proyecto
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Proyecto desarrollado para la materia de Ingeniería de software, Universidad Tecnologica de Pereira Semestre I 2020.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Este proyecto es un aplicativo web que tiene por objetivo proveer un servicio de parqueadero. Hemos implementado el framework de Laravel. 
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Prerequisitos
 
-## Learning Laravel
+Para poder poner en marcha este proyecto es necesario previamente contar con los siguientes elementos : 
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- Php7.x 
+- Composer ( [Sitio Web Oficial](https://getcomposer.org/))
+- Motor de base de datos: **MariaDB** o **MySQL**
+- Editor, recomendacion VSCode
+- terminal o shell 
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Para el desarrollo, se utilizo sistema operativo Debian version 10, Base de datos MySQL. todo el proyecto 
+se desarrolló gracias a la [documentacion oficial](https://laravel.com/docs) y a los súper tutoriales de https://laracasts.com/series/laravel-6-from-scratch/episodes/
 
-## Laravel Sponsors
+## Puesta en Marcha
+1. Clonamos el repo : 
+    ```sh
+    $ git clone https://github.com/IngenierieriaSoftware2/Parqueadero.git 
+    ```
+2. Ingresamos a la carpeta y realizamos la instalacion de las dependencias con composer
+    ```sh
+    $ cd Parqueadero 
+    Parqueadero$ composer install
+    ```
+3. Una vez tenemos las dependencias de Laravel instaladas, es necesario configurar nuestro archivo de entorno .env 
+    ```sh
+    Parqueadero$ cp .env.example .env
+    ```
+4. Creamos nuestra base de datos y corremos la migraciones y cambios en la base de datos  
+    ```sh
+    Parqueadero$ php artisan migrate
+    ```
+    Obtendras una salida como la siguiente : 
+    ```sh
+    Migration table created successfully.
+    Migrating: 2014_10_12_000000_create_users_table
+    Migrated:  2014_10_12_000000_create_users_table (0.25 seconds)
+    Migrating: 2014_10_12_100000_create_password_resets_table
+    Migrated:  2014_10_12_100000_create_password_resets_table (0.21 seconds)
+    Migrating: 2019_08_19_000000_create_failed_jobs_table
+    Migrated:  2019_08_19_000000_create_failed_jobs_table (0.1 seconds)
+    Migrating: 2020_05_27_022818_create_zonas_table
+    Migrated:  2020_05_27_022818_create_zonas_table (0.13 seconds)
+    Migrating: 2020_05_27_022852_create_clientes_table
+    Migrated:  2020_05_27_022852_create_clientes_table (0.19 seconds)
+    Seeding: ZonaSeeder
+    Seeded:  ZonaSeeder (7.84 seconds)
+    Database seeding completed successfully.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+    ```
+5. Ejecutamos y ponemos a correr nuestro servidor localmente
+    ```sh
+    Parqueadero$ php artisan serve 
+    Laravel development server started: http://127.0.0.1:8000
+    [Thu Apr 30 23:33:17 2020] PHP 7.4.5 Development Server (http://127.0.0.1:8000) started
+    ```
+## Rutas
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+| Method   | URI      | Name | Action  | Middleware   |
+|---|---|---|---|---|
+| GET|HEAD | /        |   Closure | web          |
+| GET|HEAD | /api/user |  Closure | api,auth:api |
+| GET|HEAD | home      |  home | web          |
+| PUT|HEAD | home/{idZona}        |  home.update  | web          |
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Contribuciones
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Para realizar aportes o contribuciones se implementa el [modelo](https://tighten.co/blog/adding-commits-to-a-pull-request/) de pull request.Todos los aportes son bienvenidos de personas ajenas a los miembros de equipo
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Licencia
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Proyecto de software licenciado bajo licencia [MIT](https://opensource.org/licenses/MIT).
