@@ -7,6 +7,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Zona::class, function (Faker $faker) {
     return [
-        'estado'=> 0 // Inicialmente está vacio 0-> vacio , 1-> ocupado
+        'estado'=> 0 ,// Inicialmente está vacio 0-> vacio , 1-> ocupado
+        'cliente_id'=>factory(App\Cliente::class)
     ];
 });

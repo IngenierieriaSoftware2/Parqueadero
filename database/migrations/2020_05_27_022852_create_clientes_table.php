@@ -16,7 +16,6 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->bigIncrements('id'); // Primary key
-            $table->unsignedSmallInteger('id_zona'); // Foreign Key
             $table->string('placa')->unique()->nullable();
             $table->time('hora_ingreso');
             $table->time('hora_salida')->nullable();
@@ -26,7 +25,7 @@ class CreateClientesTable extends Migration
             $table->timestamps();
 
             // Constraint definition foreign key
-            $table->foreign('id_zona')->references('id')->on('zonas');
+            
         });
     }
 

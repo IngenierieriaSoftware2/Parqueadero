@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Zona;
+use App\Cliente;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -36,12 +38,32 @@ class HomeController extends Controller
 
     public function update(Request $request, $idZona)
     {
-        // dd($idZona); debug
+        // dd($request); 
         $zona = Zona::find($idZona);
         $zona->estado = $request->estado;
-        $zona->update();
+        
+        if ($request->estado == '1') { // Si se solicita ocupar
+            $newCliente = new Cliente();
+            $newCliente->placa = $request->placa;
+            $newCliente->tarifa = 1500;
+            $newCliente->hora_ingreso = now();
+            $newCliente->save();
+            $zona->cliente_id = $newCliente->id;
+            $zona->update();
+            // dd($zona->cliente->cliente_id );
+            
+        } elseif ($request->estado == '0') { // Si se solicita desocupar
+            $zona->cliente->hora_salida = now();
 
-        // $requestData= $request->all();
+            $startTime = Carbon::parse($zona->cliente->hora_ingreso);
+            $endTime = Carbon::parse(now());
+
+            $totalDuration = $endTime->diffForHumans($startTime);
+            dd($totalDuration);
+            
+        }
+        
+        $zona->update();
 
         return redirect(route('home'));
     }
